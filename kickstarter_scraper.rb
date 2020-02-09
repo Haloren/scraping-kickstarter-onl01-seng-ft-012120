@@ -5,10 +5,11 @@ require 'pry'
 
 def create_project_hash
   
-  projects = {}
+  projects = {} #Iterate through the projects
   
-  kickstarter.css("li.project.grid_4").each do |project|
-    
+  
+  kickstarter.css("li.project.grid_4").each do |project| 
+    title = project.css("h2.bbcard")
     
   
   html = File.read('fixtures/kickstarter.html')
@@ -16,14 +17,9 @@ def create_project_hash
   kickstarter = Nokogiri::HTML(html)
   
   
-  
-  #Iterate through the projects
-  
   end 
-  
   #return the projects hash 
-  projects 
-
+  projects
 end   
   #binding.pry 
 # projects: kickstarter.css("li.project.grid_4")
